@@ -1,3 +1,6 @@
 # The package itself
 -e .
+
+flake8
+coverage
 django-discover-runner
