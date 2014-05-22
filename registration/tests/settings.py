@@ -37,5 +37,7 @@ TEMPLATE_DIRS = (
 )
 print(os.path.join(TEST_ROOT, 'templates'))
 
+AUTH_USER_MODEL = 'auth.User'
+
 if django.VERSION[:2] < (1, 6):
     TEST_RUNNER = 'discover_runner.DiscoverRunner'
