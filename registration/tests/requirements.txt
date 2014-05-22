@@ -1,2 +1,3 @@
 # The package itself
 -e .
+django-discover-runner
