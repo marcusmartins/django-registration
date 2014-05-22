@@ -4,5 +4,6 @@ export PYTHONPATH=registration
 .PHONY: test
 
 test:
-	flake8 registration --ignore=E124,E501,E127,E128
 	coverage run --branch --source=registration `which django-admin.py` test tests
+	coverage report --omit=*test*
+	#flake8 registration --ignore=E124,E501,E127,E128
