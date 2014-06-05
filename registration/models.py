@@ -6,6 +6,7 @@ import re
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.db import IntegrityError
 from django.db import transaction
 from django.template.loader import render_to_string
 from django.utils.encoding import python_2_unicode_compatible
@@ -15,6 +16,12 @@ try:
     from django.utils.timezone import now as datetime_now
 except ImportError:
     datetime_now = datetime.datetime.now
+
+# Transaction support in Django 1.6, to be removed in 1.8
+try:
+    atomic = transaction.atomic
+except AttributeError:
+    atomic = transaction.commit_on_success
 
 from .utils import binary_type
 from .utils import text_type
